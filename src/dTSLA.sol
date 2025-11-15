@@ -12,7 +12,7 @@ import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";
 /**
  * @title dTSLA
  * @notice This is our contract to make requests to the Alpaca API to mint TSLA-backed dTSLA tokens
- * @dev This contract is meant to be for educational purposes only
+ * 
  */
 contract dTSLA is FunctionsClient, ConfirmedOwner, ERC20, Pausable {
     using FunctionsRequest for FunctionsRequest.Request;
@@ -40,7 +40,7 @@ contract dTSLA is FunctionsClient, ConfirmedOwner, ERC20, Pausable {
     uint32 private constant GAS_LIMIT = 300_000;
     uint64 immutable i_subId;
 
-    // Check to get the router address for your supported network
+    // Check to get the router address for supported network
     // https://docs.chain.link/chainlink-functions/supported-networks
     address s_functionsRouter;
     string s_mintSource;
@@ -59,9 +59,6 @@ contract dTSLA is FunctionsClient, ConfirmedOwner, ERC20, Pausable {
     address public i_usdcUsdFeed;
     address public i_redemptionCoin;
 
-    // This hard-coded value isn't great engineering. Please check with your brokerage
-    // and update accordingly
-    // For example, for Alpaca: https://alpaca.markets/support/crypto-wallet-faq
     uint256 public constant MINIMUM_REDEMPTION_COIN_REDEMPTION_AMOUNT = 100e18;
 
     uint256 public constant ADDITIONAL_FEED_PRECISION = 1e10;
